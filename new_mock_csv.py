@@ -69,7 +69,7 @@ with open(et_stdc_filename, "a") as f:
             seat_count = 1
         thai_name = (
             "T"
-            + ("99%08d" % id_count)
+            + ("97%08d" % id_count)
             + " "
             + (seat_no[seat_index % len(seat_no)] % (seat_count,))
             + "-"
@@ -77,7 +77,7 @@ with open(et_stdc_filename, "a") as f:
         )
         eng_name = (
             "E"
-            + ("99%08d" % id_count)
+            + ("97%08d" % id_count)
             + " "
             + (seat_no[seat_index % len(seat_no)] % (seat_count,))
             + "-"
@@ -176,7 +176,7 @@ with open(et_stdc_filename, "a") as f:
 
             thai_name = (
                 "T"
-                + ("99%08d" % id_count)
+                + ("97%08d" % id_count)
                 + " "
                 + (seat_no[seat_index % len(seat_no)] % (seat_count,))
                 + "-"
@@ -184,7 +184,7 @@ with open(et_stdc_filename, "a") as f:
             )
             eng_name = (
                 "E"
-                + ("99%08d" % id_count)
+                + ("97%08d" % id_count)
                 + " "
                 + (seat_no[seat_index % len(seat_no)] % (seat_count,))
                 + "-"
