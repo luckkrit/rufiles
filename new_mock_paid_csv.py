@@ -1,12 +1,14 @@
 from datetime import datetime
 
 now = datetime.now()
-et_stdc_filename = "ET_STDC%s.txt" % (now.strftime("%Y-%m-%d %H-%M-%S"),)
+excel_paid_filename = "ru_student_template_paid%s.xlsx" % (
+    now.strftime("%Y-%m-%d %H-%M-%S"),
+)
 thai_names = []
 eng_names = []
 year = "2565"
 semester = "1"
-id = "99%08d"
+id = "97%08d"
 subject = ["RAM1007", "RAM1008"]
 test_date = "30"
 test_month = "05"
@@ -30,6 +32,7 @@ days = [30, 31, 1, 2, 3]
 day_index = 0
 students = 0
 seats_data = {}
+testing_information_code = ""
 for i in range(0, len(section_no)):
     seats_data[section_no[i]] = {}
     for j in range(0, len(room_no)):
@@ -49,7 +52,10 @@ def get_seat(section, room, row):
         exit(0)
 
 
-with open(et_stdc_filename, "a") as f:
+with open(excel_paid_filename, "a") as f:
+    f.write(
+        "academic_year,academic_semester,student_code,student_name_th,student_name_en,testing_information_code,register_subject_code,testing_date,section,branch_code,testing_field_code,testing_room_code\n"
+    )
     for id_count in range(0, dup):
         id_count = id_count + 1
         students = students + 1
@@ -77,7 +83,7 @@ with open(et_stdc_filename, "a") as f:
         )
         eng_name = (
             "E"
-            + ("97%08d" % id_count)
+            + (id % id_count)
             + " "
             + (seat_no[seat_index % len(seat_no)] % (seat_count,))
             + "-"
@@ -87,28 +93,28 @@ with open(et_stdc_filename, "a") as f:
         eng_names.append(eng_name)
         f.write(
             year
+            + ","
             + semester
+            + ","
             + (id % (id_count,))
+            + ","
+            + thai_name
+            + ","
+            + eng_name
+            + ","
+            + testing_information_code
+            + ","
             + subject[0]
-            + (
-                "   %02d %02d "
-                % (
-                    99,
-                    99,
-                )
-            )
+            + ","
             + ("%02d" % days[day_index])
+            + "/"
             + test_month
+            + "/"
             + test_year
-            + section_no[section_index]
-            + " "
+            + ","
+            + section_no[0]
+            + ",,"
             + room_no[room_index]
-            + (
-                get_seat(
-                    section_no[section_index], room_no[room_index], row_id[seat_index]
-                )
-                + " e-  000 000 000 0000\n"
-            )
         )
 
 students = 0
@@ -116,7 +122,7 @@ seat_index = 0
 seat_count = 0
 subject_index = 0
 room_index = 0
-with open(et_stdc_filename, "a") as f:
+with open(excel_paid_filename, "a") as f:
     for id_count in range(0, actual):
         id_count = id_count + 1
         students = students + 1
@@ -151,26 +157,51 @@ with open(et_stdc_filename, "a") as f:
                 + subject[1]
             )
 
+            # f.write(
+            #     year
+            #     + semester
+            #     + (id % (id_count,))
+            #     + subject[1]
+            #     + (
+            #         "   %02d %02d "
+            #         % (
+            #             99,
+            #             99,
+            #         )
+            #     )
+            #     + ("%02d" % days[day_index])
+            #     + test_month
+            #     + test_year
+            #     + section_no[1]
+            #     + " "
+            #     + room_no[room_index]
+            #     + get_seat(section_no[1], room_no[room_index], row_id[seat_index])
+            #     + " e-  000 000 000 0000\n"
+            # )
             f.write(
                 year
+                + ","
                 + semester
+                + ","
                 + (id % (id_count,))
+                + ","
+                + thai_name
+                + ","
+                + eng_name
+                + ","
+                + testing_information_code
+                + ","
                 + subject[1]
-                + (
-                    "   %02d %02d "
-                    % (
-                        99,
-                        99,
-                    )
-                )
+                + ","
                 + ("%02d" % days[day_index])
+                + "/"
                 + test_month
+                + "/"
                 + test_year
+                + ","
                 + section_no[1]
-                + " "
+                + ",,"
                 + room_no[room_index]
-                + get_seat(section_no[1], room_no[room_index], row_id[seat_index])
-                + " e-  000 000 000 0000\n"
             )
         else:
 
@@ -192,47 +223,56 @@ with open(et_stdc_filename, "a") as f:
             )
             thai_names.append(thai_name)
             eng_names.append(eng_name)
+            # f.write(
+            #     year
+            #     + semester
+            #     + (id % (id_count,))
+            #     + subject[subject_index % len(subject)]
+            #     + (
+            #         "   %02d %02d "
+            #         % (
+            #             99,
+            #             99,
+            #         )
+            #     )
+            #     + ("%02d" % days[day_index])
+            #     + test_month
+            #     + test_year
+            #     + section_no[section_index]
+            #     + " "
+            #     + room_no[room_index]
+            #     + get_seat(
+            #         section_no[section_index], room_no[room_index], row_id[seat_index]
+            #     )
+            #     + " e-  000 000 000 0000\n"
+            # )
             f.write(
                 year
+                + ","
                 + semester
+                + ","
                 + (id % (id_count,))
+                + ","
+                + thai_name
+                + ","
+                + eng_name
+                + ","
+                + testing_information_code
+                + ","
                 + subject[subject_index % len(subject)]
-                + (
-                    "   %02d %02d "
-                    % (
-                        99,
-                        99,
-                    )
-                )
+                + ","
                 + ("%02d" % days[day_index])
+                + "/"
                 + test_month
+                + "/"
                 + test_year
+                + ","
                 + section_no[section_index]
-                + " "
+                + ",,"
                 + room_no[room_index]
-                + get_seat(
-                    section_no[section_index], room_no[room_index], row_id[seat_index]
-                )
-                + " e-  000 000 000 0000\n"
             )
 
         if students >= max_per_day:
             day_index = day_index + 1
             day_index = day_index % len(days)
             students = 0
-
-ru25et_filename = "RU25ET%s.txt" % (now.strftime("%Y-%m-%d %H-%M-%S"),)
-sex = [1, 2, 3]
-with open(ru25et_filename, "w") as f:
-    for i in range(0, len(thai_names)):
-        i = i + 1
-        f.write(
-            "99%08d%02d %s                          %s                       %s\n"
-            % (
-                (i),
-                sex[(i - 1) % 3],
-                thai_names[i - 1],
-                eng_names[i - 1],
-                "0601A1010525380100000003840",
-            )
-        )
