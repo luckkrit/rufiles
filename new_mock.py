@@ -26,7 +26,7 @@ dup = 5
 total = 9000
 total_count = 0
 actual = total
-days = [30, 31, 1, 2, 3]
+days = ["300565", "310565", "010665", "020665", "030665"]
 day_index = 0
 students = 0
 seats_data = {}
@@ -97,9 +97,7 @@ with open(et_stdc_filename, "a") as f:
                     99,
                 )
             )
-            + ("%02d" % days[day_index])
-            + test_month
-            + test_year
+            + days[day_index]
             + section_no[section_index]
             + " "
             + room_no[room_index]
@@ -163,9 +161,7 @@ with open(et_stdc_filename, "a") as f:
                         99,
                     )
                 )
-                + ("%02d" % days[day_index])
-                + test_month
-                + test_year
+                + days[day_index]
                 + section_no[1]
                 + " "
                 + room_no[room_index]
@@ -204,9 +200,7 @@ with open(et_stdc_filename, "a") as f:
                         99,
                     )
                 )
-                + ("%02d" % days[day_index])
-                + test_month
-                + test_year
+                + days[day_index]
                 + section_no[section_index]
                 + " "
                 + room_no[room_index]

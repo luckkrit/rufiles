@@ -12,7 +12,7 @@ id = "97%08d"
 subject = ["RAM1007", "RAM1008"]
 test_date = "30"
 test_month = "05"
-test_year = "65"
+test_year = "2022"
 section_no = ["1", "2", "3"]
 room_no = ["SKB801", "SKB802", "SKB803", "SKB804", "SKB805"]
 seat_no = ["A%02d", "B%02d", "C%02d"]
@@ -28,7 +28,7 @@ dup = 5
 total = 9000
 total_count = 0
 actual = total
-days = [30, 31, 1, 2, 3]
+days = ["30/05/2022", "31/05/2022", "01/05/2022", "02/05/2022", "03/05/2022"]
 day_index = 0
 students = 0
 seats_data = {}
@@ -106,11 +106,7 @@ with open(excel_paid_filename, "a") as f:
             + ","
             + subject[0]
             + ","
-            + ("%02d" % days[day_index])
-            + "/"
-            + test_month
-            + "/"
-            + test_year
+            + days[day_index]
             + ","
             + section_no[0]
             + ",,"
@@ -194,11 +190,7 @@ with open(excel_paid_filename, "a") as f:
                 + ","
                 + subject[1]
                 + ","
-                + ("%02d" % days[day_index])
-                + "/"
-                + test_month
-                + "/"
-                + test_year
+                + days[day_index]
                 + ","
                 + section_no[1]
                 + ",,"
@@ -263,11 +255,7 @@ with open(excel_paid_filename, "a") as f:
                 + ","
                 + subject[subject_index % len(subject)]
                 + ","
-                + ("%02d" % days[day_index])
-                + "/"
-                + test_month
-                + "/"
-                + test_year
+                + days[day_index]
                 + ","
                 + section_no[section_index]
                 + ",,"
