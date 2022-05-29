@@ -115,6 +115,7 @@ with open(excel_wait_filename, "a") as f:
             + section_no[0]
             + ",,"
             + room_no[room_index]
+            + "\n"
         )
 
 students = 0
@@ -202,6 +203,7 @@ with open(excel_wait_filename, "a") as f:
                 + section_no[1]
                 + ",,"
                 + room_no[room_index]
+                + "\n"
             )
         else:
 
@@ -270,6 +272,7 @@ with open(excel_wait_filename, "a") as f:
                 + section_no[section_index]
                 + ",,"
                 + room_no[room_index]
+                + "\n"
             )
 
         if students >= max_per_day:
