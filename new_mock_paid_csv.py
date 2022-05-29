@@ -18,6 +18,8 @@ room_no = ["SKB801", "SKB802", "SKB803", "SKB804", "SKB805"]
 seat_no = ["A%02d", "B%02d", "C%02d"]
 row_id = ["A", "B", "C"]
 room_index = 0
+branch_code = "RUHM"
+testing_field_code = "SKB"
 section_index = 0
 seat_index = 0
 seat_count = 0
@@ -109,7 +111,11 @@ with open(excel_paid_filename, "a") as f:
             + days[day_index]
             + ","
             + section_no[0]
-            + ",,"
+            + ","
+            + branch_code
+            + ","
+            + testing_field_code
+            + ","
             + room_no[room_index]
             + "\n"
         )
@@ -193,7 +199,11 @@ with open(excel_paid_filename, "a") as f:
                 + days[day_index]
                 + ","
                 + section_no[1]
-                + ",,"
+                + ","
+                + branch_code
+                + ","
+                + testing_field_code
+                + ","
                 + room_no[room_index]
                 + "\n"
             )
@@ -258,7 +268,11 @@ with open(excel_paid_filename, "a") as f:
                 + days[day_index]
                 + ","
                 + section_no[section_index]
-                + ",,"
+                + ","
+                + branch_code
+                + ","
+                + testing_field_code
+                + ","
                 + room_no[room_index]
                 + "\n"
             )

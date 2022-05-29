@@ -105,16 +105,6 @@ with open(excel_wait_filename, "a") as f:
             + testing_information_code
             + ","
             + subject[0]
-            + ","
-            + ("%02d" % days[day_index])
-            + "/"
-            + test_month
-            + "/"
-            + test_year
-            + ","
-            + section_no[0]
-            + ",,"
-            + room_no[room_index]
             + "\n"
         )
 
@@ -193,16 +183,6 @@ with open(excel_wait_filename, "a") as f:
                 + testing_information_code
                 + ","
                 + subject[1]
-                + ","
-                + ("%02d" % days[day_index])
-                + "/"
-                + test_month
-                + "/"
-                + test_year
-                + ","
-                + section_no[1]
-                + ",,"
-                + room_no[room_index]
                 + "\n"
             )
         else:
@@ -262,16 +242,6 @@ with open(excel_wait_filename, "a") as f:
                 + testing_information_code
                 + ","
                 + subject[subject_index % len(subject)]
-                + ","
-                + ("%02d" % days[day_index])
-                + "/"
-                + test_month
-                + "/"
-                + test_year
-                + ","
-                + section_no[section_index]
-                + ",,"
-                + room_no[room_index]
                 + "\n"
             )
 
