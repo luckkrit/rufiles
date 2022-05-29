@@ -1,7 +1,7 @@
 from datetime import datetime
 
 now = datetime.now()
-excel_paid_filename = "ru_student_template_paid%s.xlsx" % (
+excel_paid_filename = "ru_student_template_paid%s.csv" % (
     now.strftime("%Y-%m-%d %H-%M-%S"),
 )
 thai_names = []
